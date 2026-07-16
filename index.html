@@ -1,41 +1,156 @@
-[url=https://postimg.cc/hhHZvf6p][img]https://i.postimg.cc/hhHZvf6p/LALUAN-KE-KANTIN.png[/img][/url]
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigator SK Mawar Sandakan</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; text-align: center; padding: 15px; background-color: #f4f7f6; color: #333; margin: 0; }
+        .header { background-color: #004d40; color: white; padding: 20px; border-radius: 0 0 20px 20px; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .header h2 { margin: 0; font-size: 22px; }
+        .header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.9; }
+        .tingkat-badge { background-color: #e0f2f1; color: #004d40; padding: 8px 15px; font-size: 14px; font-weight: bold; border-radius: 20px; display: inline-block; margin-top: 10px; border: 1px solid #00796b; }
+        .btn { display: block; width: 92%; max-width: 360px; margin: 8px auto; padding: 12px; font-size: 15px; font-weight: bold; color: white; background-color: #00796b; border: none; border-radius: 10px; cursor: pointer; transition: 0.2s; box-shadow: 0 3px 5px rgba(0,0,0,0.1); text-align: left; padding-left: 18px; }
+        .btn:hover { background-color: #004d40; }
+        .section-title { font-size: 15px; font-weight: bold; margin-top: 20px; color: #004d40; text-align: left; max-width: 360px; margin-left: auto; margin-right: auto; padding-left: 10px; border-left: 4px solid #00796b; }
+        img { width: 100%; max-width: 450px; display: none; margin: 15px auto; border: 3px solid #00796b; border-radius: 12px; box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+        #loading { display: none; font-weight: bold; color: #00796b; margin-top: 15px; font-size: 16px; }
+        .map-container { padding: 0 10px; margin-top: 20px; margin-bottom: 30px; }
+    </style>
+</head>
+<body>
 
-[url=https://postimg.cc/qNrmcWkM][img]https://i.postimg.cc/qNrmcWkM/LANTAI-1-BILIK-ICT.png[/img][/url]
+    <div class="header">
+        <h2>NAVIGATOR SK MAWAR</h2>
+        <p>Sila pilih bilik destinasi untuk panduan laluan</p>
+    </div>
 
-[url=https://postimg.cc/VJw792Yt][img]https://i.postimg.cc/VJw792Yt/LANTAI-1-BILIK-MESYUARAT.png[/img][/url]
+    <!-- TINGKAT BAWAH -->
+    <div class="section-title">🛑 TINGKAT BAWAH</div>
+    <button class="btn" onclick="tunjukLaluan('kantin')">🍽️ KANTIN</button>
+    <button class="btn" onclick="tunjukLaluan('bilik_kesihatan')">🏥 BILIK KESIHATAN</button>
+    <button class="btn" onclick="tunjukLaluan('bilik_sains')">🔬 BILIK SAINS</button>
+    <button class="btn" onclick="tunjukLaluan('bilik_spbt')">📚 BILIK SPBT (Buku Teks)</button>
+    <button class="btn" onclick="tunjukLaluan('surau')">🕌 SURAU</button>
+    <button class="btn" onclick="tunjukLaluan('kelas_6_pintar')">🚪 KELAS 6 PINTAR</button>
 
-[url=https://postimg.cc/rDThG78S][img]https://i.postimg.cc/rDThG78S/LANTAI-1-BILIK-PEMULIHAN.png[/img][/url]
+    <!-- LANTAI 1 -->
+    <div class="section-title">🏢 LANTAI 1</div>
+    <button class="btn" onclick="tunjukLaluan('pejabat')">🏛️ PEJABAT</button>
+    <button class="btn" onclick="tunjukLaluan('bilik_ict')">💻 BILIK ICT</button>
+    <button class="btn" onclick="tunjukLaluan('bilik_mesyuarat')">👥 BILIK MESYUARAT</button>
+    <button class="btn" onclick="tunjukLaluan('bilik_pemulihan')">✏️ BILIK PEMULIHAN</button>
+    <button class="btn" onclick="tunjukLaluan('kelas_1_genius')">🚪 KELAS 1 GENIUS</button>
+    <button class="btn" onclick="tunjukLaluan('kelas_1_intelek')">🚪 KELAS 1 INTELEK</button>
+    <button class="btn" onclick="tunjukLaluan('kelas_1_pintar')">🚪 KELAS 1 PINTAR</button>
+    <button class="btn" onclick="tunjukLaluan('kelas_3_intelek')">🚪 KELAS 3 INTELEK</button>
 
-[url=https://postimg.cc/Mnws0gW0][img]https://i.postimg.cc/Mnws0gW0/LANTAI-1-KELAS-1-GENIUS.png[/img][/url]
+    <!-- LANTAI 2 -->
+    <div class="section-title">🏢 LANTAI 2</div>
+    <button class="btn" onclick="tunjukLaluan('bilik_guru')">👥 BILIK GURU</button>
+    <button class="btn" onclick="tunjukLaluan('kelas_tahun_2')">🚪 KELAS TAHUN 2</button>
+    <button class="btn" onclick="tunjukLaluan('kelas_tahun_3_genius')">🚪 KELAS TAHUN 3 GENIUS</button>
+    <button class="btn" onclick="tunjukLaluan('kelas_tahun_4')">🚪 KELAS TAHUN 4</button>
+    <button class="btn" onclick="tunjukLaluan('kelas_tahun_5')">🚪 KELAS TAHUN 5</button>
 
-[url=https://postimg.cc/Wd755S3G][img]https://i.postimg.cc/Wd755S3G/LANTAI-1-KELAS-1-INTELEK.png[/img][/url]
+    <!-- LANTAI 3 -->
+    <div class="section-title">🏢 LANTAI 3</div>
+    <button class="btn" onclick="tunjukLaluan('pusat_sumber')">📚 PUSAT SUMBER</button>
+    <button class="btn" onclick="tunjukLaluan('kelas_tahun_6')">🚪 KELAS TAHUN 6</button>
 
-[url=https://postimg.cc/JsQppKnF][img]https://i.postimg.cc/JsQppKnF/LANTAI-1-KELAS-1-PINTAR.png[/img][/url]
+    <!-- RUANG PAPARAN PETA NAVIGASI -->
+    <div class="map-container">
+        <p id="loading">🔄 Memuatkan pelan laluan...</p>
+        <div id="infoTingkat" class="tingkat-badge" style="display:none;"></div>
+        <img id="petaLaluan" src="" alt="Pelan Laluan" onload="selesaiMuat()">
+    </div>
 
-[url=https://postimg.cc/yJYvt9gG][img]https://i.postimg.cc/yJYvt9gG/LANTAI-1-KELAS-3-INTELEK.png[/img][/url]
+    <script>
+        function tunjukLaluan(destinasi) {
+            var imej = document.getElementById('petaLaluan');
+            var loadingText = document.getElementById('loading');
+            var infoTingkat = document.getElementById('infoTingkat');
+            
+            loadingText.style.display = 'block';
+            imej.style.display = 'none';
+            infoTingkat.style.display = 'none';
+            
+            // Pautan terus gambar daripada Postimages anda
+            if(destinasi === 'kantin') {
+                infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah";
+                imej.src = 'https://postimg.cc';
+            } else if(destinasi === 'bilik_kesihatan') {
+                infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah";
+                imej.src = 'https://postimg.cc';
+            } else if(destinasi === 'bilik_sains') {
+                infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah";
+                imej.src = 'https://postimg.cc';
+            } else if(destinasi === 'bilik_spbt') {
+                infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah";
+                imej.src = 'https://postimg.cc';
+            } else if(destinasi === 'surau') {
+                infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah";
+                imej.src = 'https://postimg.cc';
+            } else if(destinasi === 'kelas_6_pintar') {
+                infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah";
+                imej.src = 'https://postimg.cc';
+            } 
+            
+            else if(destinasi === 'pejabat') {
+                infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)";
+                imej.src = 'https://postimg.cc';
+            } else if(destinasi === 'bilik_ict') {
+                infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)";
+                imej.src = 'https://postimg.cc';
+            } else if(destinasi === 'bilik_mesyuarat') {
+                infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)";
+                imej.src = 'https://postimg.cc';
+            } else if(destinasi === 'bilik_pemulihan') {
+                infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)";
+                imej.src = 'https://postimg.cc';
+            } else if(destinasi === 'kelas_1_genius') {
+                infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)";
+                imej.src = 'https://postimg.cc';
+            } else if(destinasi === 'kelas_1_intelek') {
+                infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)";
+                imej.src = 'https://postimg.cc';
+            } else if(destinasi === 'kelas_1_pintar') {
+                infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)";
+                imej.src = 'https://postimg.cc';
+            } else if(destinasi === 'kelas_3_intelek') {
+                infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)";
+                imej.src = 'https://postimg.cc';
+            } 
+            
+            else if(destinasi === 'bilik_guru') {
+                infoTingkat.innerText = "📍 Lokasi: Lantai 2 (Sila Naik Tangga)";
+                imej.src = 'https://postimg.cc';
+            } else if(destinasi === 'kelas_tahun_2') {
+                infoTingkat.innerText = "📍 Lokasi: Lantai 2 (Sila Naik Tangga)";
+                imej.src = 'https://postimg.cc';
+            } else if(destinasi === 'kelas_tahun_3_genius') {
+                infoTingkat.innerText = "📍 Lokasi: Lantai 2 (Sila Naik Tangga)";
+                imej.src = 'https://postimg.cc';
+            } else if(destinasi === 'kelas_tahun_4') {
+                infoTingkat.innerText = "📍 Lokasi: Lantai 2 (Sila Naik Tangga)";
+                imej.src = 'https://postimg.cc';
+            } else if(destinasi === 'kelas_tahun_5') {
+                infoTingkat.innerText = "📍 Lokasi: Lantai 2 (Sila Naik Tangga)";
+                imej.src = 'https://postimg.cc';
+            } 
+            
+            else if(destinasi === 'pusat_sumber') {
+                infoTingkat.innerText = "📍 Lokasi: Lantai 3 (Tingkat Atas Sekali)";
+                imej.src = 'https://postimg.cc';
+            } else if(destinasi === 'kelas_tahun_6') {
+                infoTingkat.innerText = "📍 Lokasi: Lantai 3 (Tingkat Atas Sekali)";
+                imej.src = 'https://postimg.cc';
+            }
+            
+            // Skrol automatik ke imej pelan
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
 
-[url=https://postimg.cc/PLr29Zpc][img]https://i.postimg.cc/PLr29Zpc/LANTAI-1-PEJABAT.png[/img][/url]
-
-[url=https://postimg.cc/yJYvt93K][img]https://i.postimg.cc/yJYvt93K/LANTAI-2-BILIK-GURU.png[/img][/url]
-
-[url=https://postimg.cc/FfWD4R0Y][img]https://i.postimg.cc/FfWD4R0Y/LANTAI-2-KELAS-TAHUN-2.png[/img][/url]
-
-[url=https://postimg.cc/sQMKDrJ0][img]https://i.postimg.cc/sQMKDrJ0/LANTAI-2-KELAS-TAHUN-3-GENIUS.png[/img][/url]
-
-[url=https://postimg.cc/PpCKrjM2][img]https://i.postimg.cc/PpCKrjM2/LANTAI-2-KELAS-TAHUN-4.png[/img][/url]
-
-[url=https://postimg.cc/S2nVNhGB][img]https://i.postimg.cc/S2nVNhGB/LANTAI-2-KELAS-TAHUN-5.png[/img][/url]
-
-[url=https://postimg.cc/xJB5X4xS][img]https://i.postimg.cc/xJB5X4xS/LANTAI-3-PUSAT-SUMBER.png[/img][/url]
-
-[url=https://postimg.cc/ft1CVr2W][img]https://i.postimg.cc/ft1CVr2W/LANTAI-3-TAHUN-6.png[/img][/url]
-
-[url=https://postimg.cc/wRJVLQZ0][img]https://i.postimg.cc/wRJVLQZ0/LANTAI-BAWAH-BILIK-KESIHATAN.png[/img][/url]
-
-[url=https://postimg.cc/2bgG1Kc1][img]https://i.postimg.cc/2bgG1Kc1/LANTAI-BAWAH-BILIK-SAINS.png[/img][/url]
-
-[url=https://postimg.cc/jwBcDFgn][img]https://i.postimg.cc/jwBcDFgn/LANTAI-BAWAH-BILIK-SPBT.png[/img][/url]
-
-[url=https://postimg.cc/H852X9Rb][img]https://i.postimg.cc/H852X9Rb/LANTAI-BAWAH-KELAS-6-PINTAR.png[/img][/url]
-
-[url=https://postimg.cc/D4sgLPH6][img]https://i.postimg.cc/D4sgLPH6/LANTAI-BAWAH-SURAU.png[/img][/url]
+        function selesaiMuat() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('infoTingkat').style.display = 'inline-block';
