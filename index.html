@@ -27,7 +27,7 @@
 
     <!-- TINGKAT BAWAH -->
     <div class="section-title">🛑 TINGKAT BAWAH</div>
-    <button class="btn" onclick="tunjukLaluan('KANTIN')">🍽️ KANTIN</button>
+    <button class="btn" onclick="tunjukLaluan('kantin')">🍽️ KANTIN</button>
     <button class="btn" onclick="tunjukLaluan('bilik_kesihatan')">🏥 BILIK KESIHATAN</button>
     <button class="btn" onclick="tunjukLaluan('bilik_sains')">🔬 BILIK SAINS</button>
     <button class="btn" onclick="tunjukLaluan('bilik_spbt')">📚 BILIK SPBT (Buku Teks)</button>
@@ -62,10 +62,12 @@
     <div class="map-container">
         <p id="loading">🔄 Memuatkan pelan laluan...</p>
         <div id="infoTingkat" class="tingkat-badge" style="display:none;"></div>
-        <img id="petaLaluan" src="" alt="Pelan Laluan" onload="selesaiMuat()">
+        <img id="petaLaluan" src="" alt="Pelan Laluan" onload="selesaiMuat()" onerror="cubaFormatLain()">
     </div>
 
     <script>
+        var namaFailSemasa = "";
+
         function tunjukLaluan(destinasi) {
             var imej = document.getElementById('petaLaluan');
             var loadingText = document.getElementById('loading');
@@ -75,80 +77,44 @@
             imej.style.display = 'none';
             infoTingkat.style.display = 'none';
             
-            // Menggunakan fail imej tempatan GitHub yang sedia ada
-            if(destinasi === 'kantin') {
-                infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah";
-                imej.src = 'LALUAN-KE-KANTIN.png';
-            } else if(destinasi === 'bilik_kesihatan') {
-                infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah";
-                imej.src = 'LANTAI-BAWAH-BILIK-KESIHATAN.png';
-            } else if(destinasi === 'bilik_sains') {
-                infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah";
-                imej.src = 'LANTAI-BAWAH-BILIK-SAINS.png';
-            } else if(destinasi === 'bilik_spbt') {
-                infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah";
-                imej.src = 'LANTAI-BAWAH-BILIK-SPBT.png';
-            } else if(destinasi === 'surau') {
-                infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah";
-                imej.src = 'LANTAI-BAWAH-SURAU.png';
-            } else if(destinasi === 'kelas_6_pintar') {
-                infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah";
-                imej.src = 'LANTAI-BAWAH-KELAS-6-PINTAR.png';
-            } 
+            // Set nama fail asas tanpa sambungan format (.png)
+            if(destinasi === 'kantin') { infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah"; namaFailSemasa = 'LALUAN-KE-KANTIN'; } 
+            else if(destinasi === 'bilik_kesihatan') { infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah"; namaFailSemasa = 'LANTAI-BAWAH-BILIK-KESIHATAN'; } 
+            else if(destinasi === 'bilik_sains') { infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah"; namaFailSemasa = 'LANTAI-BAWAH-BILIK-SAINS'; } 
+            else if(destinasi === 'bilik_spbt') { infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah"; namaFailSemasa = 'LANTAI-BAWAH-BILIK-SPBT'; } 
+            else if(destinasi === 'surau') { infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah"; namaFailSemasa = 'LANTAI-BAWAH-SURAU'; } 
+            else if(destinasi === 'kelas_6_pintar') { infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah"; namaFailSemasa = 'LANTAI-BAWAH-KELAS-6-PINTAR'; } 
             
-            else if(destinasi === 'pejabat') {
-                infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)";
-                imej.src = 'LANTAI-1-PEJABAT.png';
-            } else if(destinasi === 'bilik_ict') {
-                infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)";
-                imej.src = 'LANTAI-1-BILIK-ICT.png';
-            } else if(destinasi === 'bilik_mesyuarat') {
-                infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)";
-                imej.src = 'LANTAI-1-BILIK-MESYUARAT.png';
-            } else if(destinasi === 'bilik_pemulihan') {
-                infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)";
-                imej.src = 'LANTAI-1-BILIK-PEMULIHAN.png';
-            } else if(destinasi === 'kelas_1_genius') {
-                infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)";
-                imej.src = 'LANTAI-1-KELAS-1-GENIUS.png';
-            } else if(destinasi === 'kelas_1_intelek') {
-                infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)";
-                imej.src = 'LANTAI-1-KELAS-1-INTELEK.png';
-            } else if(destinasi === 'kelas_1_pintar') {
-                infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)";
-                imej.src = 'LANTAI-1-KELAS-1-PINTAR.png';
-            } else if(destinasi === 'kelas_3_intelek') {
-                infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)";
-                imej.src = 'LANTAI-1-KELAS-3-INTELEK.png';
-            } 
+            else if(destinasi === 'pejabat') { infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)"; namaFailSemasa = 'LANTAI-1-PEJABAT'; } 
+            else if(destinasi === 'bilik_ict') { infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)"; namaFailSemasa = 'LANTAI-1-BILIK-ICT'; } 
+            else if(destinasi === 'bilik_mesyuarat') { infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)"; namaFailSemasa = 'LANTAI-1-BILIK-MESYUARAT'; } 
+            else if(destinasi === 'bilik_pemulihan') { infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)"; namaFailSemasa = 'LANTAI-1-BILIK-PEMULIHAN'; } 
+            else if(destinasi === 'kelas_1_genius') { infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)"; namaFailSemasa = 'LANTAI-1-KELAS-1-GENIUS'; } 
+            else if(destinasi === 'kelas_1_intelek') { infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)"; namaFailSemasa = 'LANTAI-1-KELAS-1-INTELEK'; } 
+            else if(destinasi === 'kelas_1_pintar') { infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)"; namaFailSemasa = 'LANTAI-1-KELAS-1-PINTAR'; } 
+            else if(destinasi === 'kelas_3_intelek') { infoTingkat.innerText = "📍 Lokasi: Lantai 1 (Sila Naik Tangga)"; namaFailSemasa = 'LANTAI-1-KELAS-3-INTELEK'; } 
             
-            else if(destinasi === 'bilik_guru') {
-                infoTingkat.innerText = "📍 Lokasi: Lantai 2 (Sila Naik Tangga)";
-                imej.src = 'LANTAI-2-BILIK-GURU.png';
-            } else if(destinasi === 'kelas_tahun_2') {
-                infoTingkat.innerText = "📍 Lokasi: Lantai 2 (Sila Naik Tangga)";
-                imej.src = 'LANTAI-2-KELAS-TAHUN-2.png';
-            } else if(destinasi === 'kelas_tahun_3_genius') {
-                infoTingkat.innerText = "📍 Lokasi: Lantai 2 (Sila Naik Tangga)";
-                imej.src = 'LANTAI-2-KELAS-TAHUN-3-GENIUS.png';
-            } else if(destinasi === 'kelas_tahun_4') {
-                infoTingkat.innerText = "📍 Lokasi: Lantai 2 (Sila Naik Tangga)";
-                imej.src = 'LANTAI-2-KELAS-TAHUN-4.png';
-            } else if(destinasi === 'kelas_tahun_5') {
-                infoTingkat.innerText = "📍 Lokasi: Lantai 2 (Sila Naik Tangga)";
-                imej.src = 'LANTAI-2-KELAS-TAHUN-5.png';
-            } 
+            else if(destinasi === 'bilik_guru') { infoTingkat.innerText = "📍 Lokasi: Lantai 2 (Sila Naik Tangga)"; namaFailSemasa = 'LANTAI-2-BILIK-GURU'; } 
+            else if(destinasi === 'kelas_tahun_2') { infoTingkat.innerText = "📍 Lokasi: Lantai 2 (Sila Naik Tangga)"; namaFailSemasa = 'LANTAI-2-KELAS-TAHUN-2'; } 
+            else if(destinasi === 'kelas_tahun_3_genius') { infoTingkat.innerText = "📍 Lokasi: Lantai 2 (Sila Naik Tangga)"; namaFailSemasa = 'LANTAI-2-KELAS-TAHUN-3-GENIUS'; } 
+            else if(destinasi === 'kelas_tahun_4') { infoTingkat.innerText = "📍 Lokasi: Lantai 2 (Sila Naik Tangga)"; namaFailSemasa = 'LANTAI-2-KELAS-TAHUN-4'; } 
+            else if(destinasi === 'kelas_tahun_5') { infoTingkat.innerText = "📍 Lokasi: Lantai 2 (Sila Naik Tangga)"; namaFailSemasa = 'LANTAI-2-KELAS-TAHUN-5'; } 
             
-            else if(destinasi === 'pusat_sumber') {
-                infoTingkat.innerText = "📍 Lokasi: Lantai 3 (Tingkat Atas Sekali)";
-                imej.src = 'LANTAI-3-PUSAT-SUMBER.png';
-            } else if(destinasi === 'kelas_tahun_6') {
-                infoTingkat.innerText = "📍 Lokasi: Lantai 3 (Tingkat Atas Sekali)";
-                imej.src = 'LANTAI-3-TAHUN-6.png';
-            }
+            else if(destinasi === 'pusat_sumber') { infoTingkat.innerText = "📍 Lokasi: Lantai 3 (Tingkat Atas Sekali)"; namaFailSemasa = 'LANTAI-3-PUSAT-SUMBER'; } 
+            else if(destinasi === 'kelas_tahun_6') { infoTingkat.innerText = "📍 Lokasi: Lantai 3 (Tingkat Atas Sekali)"; namaFailSemasa = 'LANTAI-3-TAHUN-6'; }
             
-            // Skrol automatik ke imej pelan
+            // Cuba format huruf kecil (.png) dahulu secara automatik
+            imej.src = namaFailSemasa + '.png';
+            
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
+
+        function cobaFormatLain() {
+            var imej = document.getElementById('petaLaluan');
+            // Jika .png (huruf kecil) gagal ditemui, sistem automatik tukar cari format .PNG (huruf besar)
+            if (imej.src.endsWith('.png')) {
+                imej.src = namaFailSemasa + '.PNG';
+            }
         }
 
         function selesaiMuat() {
