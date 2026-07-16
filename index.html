@@ -77,7 +77,7 @@
             imej.style.display = 'none';
             infoTingkat.style.display = 'none';
             
-            // Set nama fail asas tanpa sambungan format (.png)
+            // Set nama fail asas tempatan
             if(destinasi === 'kantin') { infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah"; namaFailSemasa = 'LALUAN-KE-KANTIN'; } 
             else if(destinasi === 'bilik_kesihatan') { infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah"; namaFailSemasa = 'LANTAI-BAWAH-BILIK-KESIHATAN'; } 
             else if(destinasi === 'bilik_sains') { infoTingkat.innerText = "📍 Lokasi: Tingkat Bawah"; namaFailSemasa = 'LANTAI-BAWAH-BILIK-SAINS'; } 
@@ -103,17 +103,17 @@
             else if(destinasi === 'pusat_sumber') { infoTingkat.innerText = "📍 Lokasi: Lantai 3 (Tingkat Atas Sekali)"; namaFailSemasa = 'LANTAI-3-PUSAT-SUMBER'; } 
             else if(destinasi === 'kelas_tahun_6') { infoTingkat.innerText = "📍 Lokasi: Lantai 3 (Tingkat Atas Sekali)"; namaFailSemasa = 'LANTAI-3-TAHUN-6'; }
             
-            // Cuba format huruf kecil (.png) dahulu secara automatik
-            imej.src = namaFailSemasa + '.png';
+            // Menggunakan penanda direktori relatif './' yang betul bagi GitHub Pages
+            imej.src = './' + namaFailSemasa + '.png';
             
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
 
         function cobaFormatLain() {
             var imej = document.getElementById('petaLaluan');
-            // Jika .png (huruf kecil) gagal ditemui, sistem automatik tukar cari format .PNG (huruf besar)
+            // Jika pencarian relatif huruf kecil gagal, tukar secara dinamik mencari format huruf besar .PNG
             if (imej.src.endsWith('.png')) {
-                imej.src = namaFailSemasa + '.PNG';
+                imej.src = './' + namaFailSemasa + '.PNG';
             }
         }
 
